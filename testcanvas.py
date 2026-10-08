@@ -48,7 +48,7 @@ while True:
     event, values = reactionwindow.read()
     if event == sg.WINDOW_CLOSED:
         break
-    elif event == "start Test":
+    elif event == "Start Test":
         oneTimer = True     
         greenTime = False
 reactionwindow.close()
