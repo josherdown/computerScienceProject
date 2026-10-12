@@ -26,7 +26,6 @@ def reactionTimeTest():
     if oneTimer == True:
         reactionwindow['-CANVAS-'].update(background_color = "red")
         randTimer = random.randint(3,7)
-        print("Timer of ",randTimer," seconds.")
         time.sleep(randTimer)
         reactionwindow['-CANVAS-'].update(background_color = "green")
         startTime = time.time()
@@ -41,8 +40,6 @@ def reactionGreenClick(event):
     if greenTime == True:
         print("Clicked after ",time.time() - startTime, "seconds")
         reactionwindow["-CANVAS-"].update(background_color = "red")
-    else:
-        print("greenTime not set")
 
 sg_canvas.bind("<Button-1>", reactionGreenClick)
 
