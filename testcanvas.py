@@ -16,30 +16,35 @@ reactionlayout = [reactCanvas,
 reactionwindow = sg.Window('Canvas Click Test', reactionlayout, size=(500,500),  finalize=True)
 sg_canvas = reactionwindow['-CANVAS-'].TKCanvas
 
-def reactionTimeTest(event):
+global startTime
+startTime = 0
+
+def reactionTimeTest():
     global oneTimer
-    reactionwindow['-CANVAS-'].update(background_color = "red")
+    global greenTime
+    global startTime
     if oneTimer == True:
+        reactionwindow['-CANVAS-'].update(background_color = "red")
         randTimer = random.randint(3,7)
         print("Timer of ",randTimer," seconds.")
         time.sleep(randTimer)
         reactionwindow['-CANVAS-'].update(background_color = "green")
+        startTime = time.time()
         greenTime = True
         oneTimer = False
-   
-    
+        print("Updated variables")
 
-    
+
 def reactionGreenClick(event):
     global greenTime
-    print("space")
+    global startTime
     if greenTime == True:
-        startTime = time.time()
         print("Clicked after ",time.time() - startTime, "seconds")
-        reactionwindow["-CANVAS-"].update(bacground_color = "red")
+        reactionwindow["-CANVAS-"].update(background_color = "red")
+    else:
+        print("greenTime not set")
 
-sg_canvas.bind("<Button-1>", reactionTimeTest)
-sg_canvas.bind("<Button-2>", reactionGreenClick)
+sg_canvas.bind("<Button-1>", reactionGreenClick)
 
 
 
@@ -49,6 +54,7 @@ while True:
     if event == sg.WINDOW_CLOSED:
         break
     elif event == "Start Test":
-        oneTimer = True     
+        oneTimer = True
         greenTime = False
+        reactionTimeTest()
 reactionwindow.close()
