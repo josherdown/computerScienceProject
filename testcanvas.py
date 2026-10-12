@@ -39,7 +39,7 @@ def reactionGreenClick(event):
         reactionwindow["-CANVAS-"].update(bacground_color = "red")
 
 sg_canvas.bind("<Button-1>", reactionTimeTest)
-sg_canvas.bind("<Button-2>", reactionGreenClick)
+sg_canvas.bind("<Button-1>", reactionGreenClick)
 
 
 
