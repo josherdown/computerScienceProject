@@ -2,6 +2,8 @@ import PySimpleGUI as sg
 import time as time
 import random as random
 
+UPPER_TIME_LIMIT = 7
+LOWER_TIME_LIMIT = 3
 
 global oneTimer
 oneTimer = False
@@ -25,13 +27,14 @@ def reactionTimeTest():
     global startTime
     if oneTimer == True:
         reactionwindow['-CANVAS-'].update(background_color = "red")
-        randTimer = random.randint(3,7)
+
+        randTimer = random.randint(LOWER_TIME_LIMIT, UPPER_TIME_LIMIT)
         time.sleep(randTimer)
+
         reactionwindow['-CANVAS-'].update(background_color = "green")
         startTime = time.time()
         greenTime = True
         oneTimer = False
-        print("Updated variables")
 
 
 def reactionGreenClick(event):
@@ -42,9 +45,6 @@ def reactionGreenClick(event):
         reactionwindow["-CANVAS-"].update(background_color = "red")
 
 sg_canvas.bind("<Button-1>", reactionGreenClick)
-
-
-
 
 while True:
     event, values = reactionwindow.read()
