@@ -39,8 +39,10 @@ def reactionGreenClick(event):
     global greenTime
     global startTime
     if greenTime == True:
+        greenTime == False
         print("Clicked after ",time.time() - startTime, "seconds")
         reactionwindow["-CANVAS-"].update(background_color = "red")
+        
     else:
         print("greenTime not set")
 
