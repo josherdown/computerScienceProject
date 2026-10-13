@@ -6,8 +6,8 @@ import random as random
 global oneTimer
 oneTimer = False
 global greenTime
-greenTime = False
-sg.theme("Dark Blue")
+greenTime = False 
+sg.theme("Dark Blue") #createst the window layout plus canvas element for the test
 reactCanvas =[sg.Canvas(size=(500, 300), key='-CANVAS-', background_color='red')]
 reactionlayout = [reactCanvas,
                   [sg.Text("This is the reaction time test")],
@@ -19,7 +19,7 @@ sg_canvas = reactionwindow['-CANVAS-'].TKCanvas
 global startTime
 startTime = 0
 
-def reactionTimeTest():
+def reactionTimeTest(): #The function to register the button to a timer that starts the test
     global oneTimer
     global greenTime
     global startTime
@@ -35,7 +35,7 @@ def reactionTimeTest():
         print("Updated variables")
 
 
-def reactionGreenClick(event):
+def reactionGreenClick(event): #The function to register when the canvas is clicked after the timer counts down
     global greenTime
     global startTime
     if greenTime == True:
@@ -51,7 +51,7 @@ sg_canvas.bind("<Button-1>", reactionGreenClick)
 
 
 
-while True:
+while True: #Stays open constantly allowing for buttons and closing the window to be available constantly
     event, values = reactionwindow.read()
     if event == sg.WINDOW_CLOSED:
         break

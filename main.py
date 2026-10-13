@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-sg.theme("Dark Blue")
+sg.theme("Dark Blue") #creating the main file in order to link all the tests to.
 mainLayout = [[sg.Text("This is the Human Bench Mark Test")],
             [sg.Button("Tests")]
               ]
