@@ -41,7 +41,7 @@ def reactionGreenClick(event): #The function to register when the canvas is clic
     global startTime
     if greenTime == True:
         greenTime == False
-        print("Clicked after ",(time.time() - startTime)*10000, "milliseconds")
+        print("Clicked after ",(time.time() - startTime)*1000, "milliseconds")
         reactionwindow["-CANVAS-"].update(background_color = "red")
         
     else:
